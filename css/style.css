@@ -1,0 +1,867 @@
+html, body {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Скрываем скролл на главной странице */
+    body {
+        overflow-y: scroll; /* Всегда резервируем место для скролла */
+    }
+    
+    body::-webkit-scrollbar {
+        width: 0px;  /* Убираем скроллбар в WebKit браузерах (Chrome, Safari) */
+        background: transparent; /* Делаем прозрачным */
+    }
+    
+    /* Для Firefox */
+    html {
+        scrollbar-width: none; /* Убираем скроллбар */
+    }
+    
+    /* Для Internet Explorer и Edge */
+    body {
+        -ms-overflow-style: none; /* Убираем скроллбар */
+    }
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    gap: 15px !important;
+}
+
+.navbar-logo {
+    margin-left: 50px !important
+}
+
+.navbar-nav .nav-link {
+    color: #222;
+    font-size: 1.2rem; 
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffcc31 !important
+}
+
+/* Для мобильного меню (бургера) */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+    
+    .navbar-nav {
+        align-items: center !important;
+    }
+    
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: inline-block;
+        padding: 10px 0 !important;
+    }
+    
+    .cart-button {
+        margin: 10px auto;
+    }
+}
+
+.navbar-nav .nav-link.active:hover {
+    color: #ffcc31 !important
+}
+
+.cart-button {
+    width: 150px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid #ffe466;
+    border-radius: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cart-button:hover {
+    background-color: #fff9e6;
+    border-color: #ffcc31;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.cart-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    fill: #333;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.carousel-container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Увеличение размера стрелок */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 60px !important;
+    height: 60px !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 50% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    opacity: 0.8 !important;
+}
+
+.carousel-control-prev {
+    left: 20px !important;
+}
+
+.carousel-control-next {
+    right: 20px !important;
+}
+
+/* Увеличение иконок стрелок */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 30px !important;
+    height: 30px !important;
+    background-size: 30px 30px !important;
+}
+
+/* Эффект при наведении */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    opacity: 1 !important;
+}
+
+/* Стили для заголовка секции */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.menu {
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.menu-section {
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.custom-card {
+    width: 310px;
+    height: 465px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.custom-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(465px - 200px);
+    padding: 20px;
+}
+
+.custom-card .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.custom-card .card-text {
+    flex: 1;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.custom-card .btn {
+    background-color: #ffcc31;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.custom-card .btn:hover {
+    background-color: #FFC400;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    color: #222;
+    padding: 2rem 0 0 0;
+    margin-top: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для логотипа в футере слева */
+.footer-logo-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-column: 1; /* Первая колонка */
+}
+
+.footer-logo {
+    max-width: 300px;
+    height: auto;
+    filter: brightness(0.9);
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1);
+}
+
+.footer-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+
+.footer-content {
+    grid-template-columns: auto repeat(5, 1fr); /* auto для логотипа слева */
+    align-items: start;
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: #222;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links a {
+    color: #222;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 2px 0;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #ffcc31;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    background-color: #ffcc31;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.social-links a:hover {
+    background-color: #FFC400;
+}
+
+.footer-bottom {
+    background-color: #ffcc31;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer-bottom p {
+    color: #222;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Адаптивность Footer*/
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-logo-section {
+        grid-column: 1;
+        justify-content: center;
+        order: -1; /* логотип первым на мобильных */
+        margin-bottom: 20px;
+    }
+    
+    .footer-logo {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+}
+
+/* Для больших масштабов экрана (175%, 200%) */
+@media (max-width: 1400px) {
+   
+    
+    .footer-section:last-child {
+        grid-column: 1 / -1; /* Соцсети занимают всю ширину */
+        text-align: center;
+        margin-top: 1rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #ffcc31;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+/* .phone-container {
+    white-space: nowrap;
+    overflow: hidden;
+} */
+
+.phone-wrapper {
+    margin-top: 5px;
+}
+
+.phone-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #222;
+    margin-bottom: 2px;
+}
+
+.phone-btn {
+    background: none;
+    border: none;
+    color: #222;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.phone-btn:hover {
+    color: #ffcc31;
+}
+
+/* Стили для корзины */
+.cart-item {
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: #f8f9fa;
+}
+
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.remove-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Стили для уведомлений */
+.alert {
+    animation: slideDown 0.3s ease;
+}
+
+/* Стили для желтого уведомления о добавлении в корзину */
+.alert-warning {
+    background-color: #ffcc31 !important;
+    border-color: #ffc400 !important;
+    color: #333 !important;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(255, 204, 49, 0.3);
+}
+
+.alert-warning .btn-close {
+    filter: brightness(0.7);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Стили для модального окна корзины */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background-color: #ffcc31;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px solid #ffc400;
+}
+
+.modal-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 15px;
+    
+}
+
+/* Стили для пустой корзины */
+.cart-items .text-muted {
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Анимация добавить в корзину */
+.add-to-cart {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 204, 49, 0.4);
+}
+
+.add-to-cart:active {
+    transform: translateY(0);
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 20px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* .cart-item > div:last-child {
+        margin-top: 10px;
+        align-self: flex-end;       
+    } */
+}
+
+/* Кастомные стили для кнопок в корзине */
+.modal-footer .btn {
+    height: 50px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 2px solid #ffcc31;
+    background-color: white;
+    color: #333;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.modal-footer .btn:hover {
+    background-color: #ffcc31;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-footer .btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+/* Цвет текста для разных кнопок при наведении */
+.modal-footer .btn-secondary:hover {
+    color: #333;
+}
+
+.modal-footer .btn-warning:hover {
+    color: #333;
+}
+
+.modal-footer .btn-success:hover {
+    color: #333;
+}
+
+/* Кнопки изменения количества и удаления */
+.quantity-btn, .remove-btn {
+    border: 2px solid #ffcc31;
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover, .remove-btn:hover {
+    background-color: #ffcc31;
+}
+
+/* Кнопки удаления */
+.remove-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Стили для скроллбара в корзине */
+.cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: #ffcc31;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+    background: #ffc400;
+}
+
+/* Стили для кнопки телефона */
+.phone-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.phone-btn:hover {
+    color: #ffcc31 !important;
+    transform: translateY(-1px);
+}
+
+/* Стили для модального окна звонка */
+#callModal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#callModal .modal-header {
+    background-color: #ffcc31;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px solid #ffc400;
+}
+
+#callModal .modal-title {
+    font-weight: bold;
+    color: #222;
+}
+
+#callModal .modal-body {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.call-confirmation-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0;
+}
+
+.call-text {
+    font-weight: bold;
+    color: #333;
+}
+
+    /* .cookie-consent {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: white;
+        color: #000000;
+        padding: 20px;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border-radius: 15px;
+        border: 2px solid #ffcc31;
+        max-width: 380px;
+        display: none;
+    }
+    
+    .cookie-header {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .cookie-header::before {
+        content: "🍪";
+        font-size: 1.5rem;
+    }
+    
+    .cookie-text {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .cookie-button {
+        background: #ffcc31;
+        color: #333;
+        border: 2px solid #ffcc31;
+        padding: 12px 25px;
+        border-radius: 15px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .cookie-button:hover {
+        background: #FFC400;
+        border-color: #FFC400;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .cookie-button:active {
+        transform: translateY(0);
+    }
+    
+    .cookie-hidden {
+        display: none !important;
+    }
+    
+    @media (max-width: 768px) {
+        .cookie-consent {
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            max-width: none;
+            margin: 0 10px;
+        }
+    } */
+
+        .cookie-consent {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: white;
+        color: #000000;
+        padding: 15px;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        border-radius: 12px;
+        border: 2px solid #ffcc31;
+        max-width: 320px;
+        display: none;
+    }
+    
+    .cookie-header {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        line-height: 1.2;
+    }
+    
+ .cookie-header::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url('../img/favicon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+    
+    .cookie-text {
+        font-size: 13px;
+        line-height: 1.3;
+        color: #333;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+    
+    .cookie-button {
+        background: #ffcc31;
+        color: #333;
+        border: 2px solid #ffcc31;
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .cookie-button:hover {
+        background: #FFC400;
+        border-color: #FFC400;
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    
+    .cookie-button:active {
+        transform: translateY(0);
+    }
+    
+    @media (max-width: 768px) {
+        .cookie-consent {
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            max-width: none;
+            margin: 0 10px;
+            padding: 12px;
+        }
+        
+        .cookie-header {
+            font-size: 1rem;
+        }
+        
+        .cookie-text {
+            font-size: 12px;
+        }
+    }
