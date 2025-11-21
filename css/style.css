@@ -691,7 +691,7 @@ main {
     color: #333;
 }
 
-    /* .cookie-consent {
+     .cookie-consent {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -770,9 +770,9 @@ main {
             max-width: none;
             margin: 0 10px;
         }
-    } */
+    } 
 
-        .cookie-consent {
+      /*  .cookie-consent {
         position: fixed;
         bottom: 20px;
         right: 20px;
@@ -864,4 +864,5 @@ main {
         .cookie-text {
             font-size: 12px;
         }
-    }
+
+    } */
