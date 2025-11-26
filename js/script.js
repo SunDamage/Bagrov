@@ -290,3 +290,22 @@
             console.log('Cookie сброшены');
             alert('Cookie сброшены! Обновите страницу для теста.');
         }
+
+// Показываем/скрываем кнопку при прокрутке
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// Плавная прокрутка наверх при клике
+backToTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
