@@ -308,4 +308,13 @@ backToTopBtn.addEventListener('click', function(e) {
         behavior: 'smooth'
     });
 });
+// Принудительно покажем кнопку для теста
+        setTimeout(() => {
+            backToTopBtn.classList.add('show');
+            console.log('Принудительно показали кнопку для теста');
+        }, 1000);
+    } else {
+        console.error('Кнопка backToTop не найдена!');
+    }
+});
 
